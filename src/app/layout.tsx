@@ -4,8 +4,9 @@ import "./globals.css";
 
 // 1) นำเข้า Navbar ที่เราสร้างเมื่อกี้
 //    เส้นทางนี้ หมายถึง: src/components/Navbar
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
-
+import { PageTransition } from "@/components/layout/PageTransition";
 // 2) ตั้งค่า font Inter เป็น font หลักทั้งเว็บ
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,11 +28,13 @@ export default function RootLayout({
     <html lang="th">
       {/* 6) ใส่ className จาก Inter (ฟอนต์) ให้กับทั้ง body */}
       <body className={inter.className}>
-        {/* 7) เรียกใช้ Navbar ด้านบนสุด */}
+        {/* 7) Navbar อยู่คงที่ */}
+        <SmoothScroll>
         <Navbar />
 
-        {/* 8) children = ตำแหน่งที่แต่ละ page.tsx จะถูก render */}
-        {children}
+        {/* 8) ครอบ children ด้วย PageTransition */}
+        <PageTransition>{children}</PageTransition>
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -36,27 +36,28 @@ The website is designed with:
 
 src/
 ├── app/
-│ ├── layout.tsx
-│ ├── page.tsx → Home
-│ ├── services/page.tsx → Services
-│ ├── portfolio/page.tsx → Portfolio
-│ └── about/page.tsx → About
+│   ├── layout.tsx
+│   ├── page.tsx                   → Home
+│   ├── services/
+│   │   └── page.tsx               → Services
+│   ├── portfolio/
+│   │   └── page.tsx               → Portfolio
+│   └── about/
+│       └── page.tsx               → About
 │
 ├── components/
-│ ├── Navbar.tsx
-│ ├── Footer.tsx
-│ ├── SectionTitle.tsx
-│ ├── ServiceCard.tsx
-│ └── PortfolioCard.tsx
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── SectionTitle.tsx
+│   ├── ServiceCard.tsx
+│   └── PortfolioCard.tsx
 │
 ├── styles/
-│ └── globals.css
+│   └── globals.css
 │
 └── public/
-└── images/
+    └── images/
 
-yaml
-Copy code
 
 ---
 

@@ -26,11 +26,11 @@ export function Navbar() {
           className="text-base md:text-lg font-semibold tracking-wide text-[#0D278A]"
         >
           <Image
-            src="/images/temp-logo-prime-2.png" // 👉 เปลี่ยนเป็น path ของโลโก้คุณ
-            alt="Prime Digital Consultant Logo"
-            width={120} // 👉 ปรับขนาดตามต้องการ
-            height={40}
-            className="object-contain"
+          src="/images/prime-logo.png"         // 👉 เปลี่ยนเป็น path ของโลโก้คุณ
+    alt="Prime Digital Consultant Logo"
+    width={120}             // 👉 ปรับขนาดตามต้องการ
+    height={40}
+    className="object-contain"
           />
         </Link>
 

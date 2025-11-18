@@ -49,13 +49,13 @@ function ServiceCard({ service }: ServiceCardProps) {
             {service.name}
           </h2>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5A73C3] mt-1">
-            {service.shortTitle}
+            {service.description}
           </p>
         </div>
 
         {/* กลุ่มเป้าหมาย */}
         <div className="text-xs text-[#4B5563] bg-[#EEF2FF] text-[#0D278A] px-3 py-1 rounded-full">
-          กลุ่มเป้าหมายหลัก: {service.target}
+          กลุ่มเป้าหมายหลัก: {service.details}
         </div>
       </div>
 

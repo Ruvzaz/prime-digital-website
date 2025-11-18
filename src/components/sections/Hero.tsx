@@ -10,9 +10,7 @@ export function Hero() {
         {/* 4) ฝั่งซ้าย: ข้อความหลัก */}
         <div className="text-white space-y-6">
           {/* 4.1) แท็กเล็กด้านบน ชื่อบริษัท */}
-          <p className="text-xs font-semibold tracking-[0.25em] uppercase opacity-80">
-            PRIME DIGITAL CONSULTANT
-          </p>
+          
 
           {/* 4.2) หัวข้อใหญ่ (Hero Title) */}
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">

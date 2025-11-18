@@ -126,24 +126,34 @@ Locks all dependency versions.
 .env.local
 Contains sensitive keys. Do not commit.
 
-🔄 Git Workflow (Recommended)
-Before working:
-
-bash
-Copy code
+✔ Recommended Workflow
+1) Before starting work
+git checkout dev
 git pull
-After changes:
 
-bash
-Copy code
+2) After making changes
 git add .
-git commit -m "update: description"
+git commit -m "update: your description"
 git push
-Branches:
 
-main → production
+3) When ready to update production
 
-dev → development
+Merge dev → main
+
+Option A: via GitHub Pull Request (recommended)
+Option B: via command line:
+
+git checkout main
+git pull
+git merge dev
+git push
+
+✔ Check your current branches
+git branch
+
+✔ Create dev branch (if not exists)
+git checkout -b dev
+git push -u origin dev
 
 🧩 UI / Design System
 Blue + Glassmorphism

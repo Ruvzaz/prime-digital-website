@@ -55,7 +55,7 @@ function ServiceCard({ service }: ServiceCardProps) {
 
         {/* กลุ่มเป้าหมาย */}
         <div className="text-xs text-[#4B5563] bg-[#EEF2FF] text-[#0D278A] px-3 py-1 rounded-full">
-          กลุ่มเป้าหมายหลัก: {service.details}
+          กลุ่มเป้าหมายหลัก: {service.target}
         </div>
       </div>
 

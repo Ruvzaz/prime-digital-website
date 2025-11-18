@@ -21,7 +21,10 @@ export function Navbar() {
       {/* แถวบน: โลโก้ + เมนู (desktop) + ปุ่ม hamburger (mobile) */}
       <div className="max-w-6xl mx-auto px-4 md:px-6 h-14 flex items-center justify-between">
         {/* LOGO / BRAND */}
-        <Link href="/" className="text-base md:text-lg font-semibold tracking-wide text-[#0D278A]">
+        <Link
+          href="/"
+          className="text-base md:text-lg font-semibold tracking-wide text-[#0D278A]"
+        >
           <Image
           src="/images/prime-logo.png"         // 👉 เปลี่ยนเป็น path ของโลโก้คุณ
     alt="Prime Digital Consultant Logo"
@@ -79,33 +82,33 @@ export function Navbar() {
       </div>
 
       {/* Mobile Overlay Menu */}
-{isOpen && (
-  <div className="absolute right-0 top-14 md:hidden z-40">
-    <div className="w-48 rounded-2xl bg-white/95 shadow-[0_18px_40px_rgba(15,23,42,0.18)] border border-[#E5E7EB] py-2">
-      {navItems.map((item) => {
-        const isActive =
-          item.href === "/"
-            ? pathname === "/"
-            : pathname.startsWith(item.href);
+      {isOpen && (
+        <div className="absolute right-0 top-14 md:hidden z-40">
+          <div className="w-48 rounded-2xl bg-white/95 shadow-[0_18px_40px_rgba(15,23,42,0.18)] border border-[#E5E7EB] py-2">
+            {navItems.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
 
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            onClick={() => setIsOpen(false)}
-            className={`block px-4 py-2.5 text-sm text-left rounded-xl ${
-              isActive
-                ? "bg-[#EEF2FF] text-[#0D278A] font-semibold"
-                : "text-[#4B5563] hover:bg-[#F3F4F6]"
-            }`}
-          >
-            {item.label}
-          </Link>
-        );
-      })}
-    </div>
-  </div>
-)}
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-2.5 text-sm text-left rounded-xl ${
+                    isActive
+                      ? "bg-[#EEF2FF] text-[#0D278A] font-semibold"
+                      : "text-[#4B5563] hover:bg-[#F3F4F6]"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

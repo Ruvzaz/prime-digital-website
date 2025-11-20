@@ -83,7 +83,7 @@ function ProjectRow({ project }: ProjectRowProps) {
               * รายละเอียดเชิงเทคนิคและ stack ที่ใช้สามารถพูดคุยเพิ่มเติมได้ระหว่างการปรึกษา.
             </p>
             <Link
-              href="/contact"
+              href={`/portfolio/${project.slug}`}
               className="inline-flex items-center px-4 py-2 rounded-full bg-[#0D278A] text-white text-xs font-semibold shadow-sm hover:bg-[#0A1E6A] transition"
             >
               สนใจโปรเจกต์ลักษณะนี้

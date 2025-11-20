@@ -2,10 +2,18 @@
 export type Project = {
   id: number;
   title: string;
+  slug: string;
   category: string;
   year: string;
   description: string;
   imageSrc: string; // path รูปใน public เช่น "/portfolio-1.jpg"
+  // 👇 สำหรับหน้า Detail
+  overview?: string;
+  problem?: string;
+  solution?: string;
+  outcome?: string;
+  gallery?: string[]; // รูปภาพเพิ่มเติม
+  
 };
 
 // ประกาศรายการผลงาน (คุณสามารถแก้/เพิ่มได้เองภายหลัง)
@@ -13,6 +21,7 @@ export const PROJECTS: Project[] = [
   {
     id: 1,
     title: "โครงการการพัฒนาเครือข่ายอาสาสมัครดิจิทัล (อสด.)",
+    slug: "digital-volunteer",
     category: "Digital · Volunteer",
     year: "2025",
     description:
@@ -22,6 +31,7 @@ export const PROJECTS: Project[] = [
   {
     id: 2,
     title: "กิจกรรมค่ายเยาวชนไซเบอร์ (Cyber Youth Camp)",
+    slug: "cyber-youth-camp",
     category: "Cyber · Youth Camp",
     year: "2024",
     description:
@@ -31,6 +41,7 @@ export const PROJECTS: Project[] = [
   {
     id: 3,
     title: "กิจกรรมยกระดับสมรรถนะประชากรเพื่อให้พร้อมเข้าสู่การเป็นพลเมืองดิจิทัล",
+    slug: "mildl-digital-literacy",
     category: "MILDL · Digital Literacy",
     year: "2025",
     description:
@@ -40,6 +51,7 @@ export const PROJECTS: Project[] = [
   {
     id: 4,
     title: "ข้อมูลระบบลงทะเบียนฉีดวัคซีน ซิโนฟาร์ม องค์การบริหารส่วนจังหวัดสมุทรปราการ",
+    slug: "sinofarm-vaccination-registration",
     category: "Visualization · Dashboard",
     year: "2021",
     description:
@@ -49,6 +61,7 @@ export const PROJECTS: Project[] = [
   {
     id: 5,
     title: "ข้อมูลสถานภาพการรู้เท่าทันสื่อสารสนเทศ และการเข้าใจดิจิทัล ประจำปี พ.ศ. 2568",
+    slug: "mildl-dashboard-2568",
     category: "Visualization · Dashboard",
     year: "2025",
     description:

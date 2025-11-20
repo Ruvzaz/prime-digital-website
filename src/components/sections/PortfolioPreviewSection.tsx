@@ -89,7 +89,7 @@ export function PortfolioPreviewSection() {
                     </p>
 
                     <Link
-                      href="/portfolio"
+                      href={`/portfolio/${project.slug}`}
                       className="inline-flex items-center text-xs font-semibold text-[#0D278A] hover:underline mt-2"
                     >
                       ดูรายละเอียดโปรเจกต์ →

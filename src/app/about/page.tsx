@@ -34,7 +34,7 @@ export default function AboutPage() {
 
             {/* ✔ Paragraph */}
             <p className="text-sm md:text-base text-[#4B5563] leading-relaxed">
-              Prime Digital Consultant Co., Ltd. เป็นบริษัทที่ให้คำปรึกษาด้านดิจิทัลแบบครบวงจร—
+              Prime Digital Consultant Co., Ltd. เป็นบริษัทที่ให้คำปรึกษาด้านดิจิทัลแบบครบวงจร
               ตั้งแต่การวางกลยุทธ์ดิจิทัล การตลาดออนไลน์ การพัฒนาระบบแอปและเว็บไซต์
               จัดการสื่อโซเชียล ไปจนถึงการวิเคราะห์ข้อมูลเชิงลึกเพื่อขับเคลื่อนองค์กร.
             </p>

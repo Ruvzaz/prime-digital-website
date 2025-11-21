@@ -9,26 +9,32 @@ type PageTransitionProps = {
   children: ReactNode;
 };
 
+import { TRANSITION_DURATION } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 export function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const { isTransitioning: isLangTransitioning } = useLanguage();
+  const [isPageTransitioning, setIsPageTransitioning] = useState(false);
 
   useEffect(() => {
     // เมื่อ pathname เปลี่ยน แสดงหน้าจอ transition
-    setIsTransitioning(true);
+    setIsPageTransitioning(true);
     
     const timer = setTimeout(() => {
-      setIsTransitioning(false);
-    }, 600); // แสดง 600ms (สั้นกว่า preloader)
+      setIsPageTransitioning(false);
+    }, TRANSITION_DURATION);
 
     return () => clearTimeout(timer);
   }, [pathname]);
+
+  const showOverlay = isPageTransitioning || isLangTransitioning;
 
   return (
     <>
       {/* Transition Overlay (คล้าย Preloader) */}
       <AnimatePresence>
-        {isTransitioning && (
+        {showOverlay && (
           <motion.div
             className="fixed inset-0 z-[9998] flex items-center justify-center bg-[#F5F7FA]"
             initial={{ opacity: 0 }}

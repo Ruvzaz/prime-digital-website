@@ -1,0 +1,131 @@
+export const th = {
+  // === Navbar ===
+  "nav.home": "หน้าหลัก",
+  "nav.services": "บริการ",
+  "nav.portfolio": "แฟ้มผลงาน",
+  "nav.about": "เกี่ยวกับเรา",
+  "nav.contact": "Contact",
+  "nav.cta": "นัดหมายปรึกษา",
+
+  // === Hero Section ===
+  "hero.subtitle": "ผู้ให้คำปรึกษาด้านดิจิทัล",
+  "hero.title.line1": "Prime",
+  "hero.title.line2": "Digital Consultant",
+  "hero.description": "ทีมที่ปรึกษาด้านดิจิทัลระดับมืออาชีพ ที่มุ่งออกแบบกลยุทธ์ สถาปัตยกรรมระบบ และแดชบอร์ดเชิงลึก เพื่อยกระดับการตัดสินใจขององค์กรให้แม่นยำ บนพื้นฐานของข้อมูลจริงอย่างถูกต้อง",
+  "hero.cta1": "นัดหมายปรึกษา",
+  "hero.cta2": "ดูผลงานของเรา",
+  "hero.card.title": "Digital Transformation",
+  "hero.card.item1": "○ System Audit & Digital Readiness",
+  "hero.card.item2": "○ Cloud & Backend Architecture Design",
+  "hero.card.item3": "○ Dashboard & Data Insights สำหรับผู้บริหาร",
+  "hero.card.footer": "เราออกแบบแนวทางให้เหมาะกับสภาพแวดล้อมจริงขององค์กร ไม่ใช่โซลูชันสำเร็จรูปที่ใช้ได้กับทุกแห่ง",
+
+  // === Services Section ===
+  "services.subtitle": "OUR SERVICES",
+  "services.title": "บริการหลักของเรา",
+  "services.description": "ครอบคลุมตั้งแต่การวางกลยุทธ์ดิจิทัล การออกแบบสถาปัตยกรรมระบบ ไปจนถึงการพัฒนาและส่งมอบโซลูชันที่ใช้งานได้จริงในองค์กรของคุณ",
+  "services.viewDetails": "ดูรายละเอียดบริการ",
+  "services.learnMore": "รายละเอียดเพิ่มเติม",
+
+  // === Portfolio Section ===
+  "portfolio.subtitle": "PORTFOLIO",
+  "portfolio.title": "ผลงานที่เราเคยร่วมพัฒนากับองค์กรต่าง ๆ",
+  "portfolio.description": "รวมตัวอย่างบางส่วนของโครงการด้านการออกแบบระบบ พัฒนา backend และแดชบอร์ดข้อมูล ที่เราช่วยองค์กรภาครัฐและเอกชนออกแบบและส่งมอบ โดยเน้นผลลัพธ์ที่ใช้งานได้จริงในบริบทขององค์กร",
+  "portfolio.view": "ดูรายละเอียด",
+  "portfolio.cta": "สนใจโปรเจกต์นี้",
+  "portfolio.technicalNote": "* รายละเอียดเชิงเทคนิคและ stack สามารถพูดคุยเพิ่มเติมได้",
+
+  // === About Page ===
+  "about.subtitle": "ABOUT US",
+  "about.companyName": "Prime Digital Consultant Co., Ltd.",
+  "about.title": "เกี่ยวกับเรา",
+  "about.hero.description": "พาร์ตเนอร์ด้านดิจิทัลที่ช่วยองค์กรวางกลยุทธ์ ออกแบบ และพัฒนาระบบ พร้อมทีมงานมืออาชีพที่เข้าใจทั้งธุรกิจ การตลาด และเทคโนโลยี",
+  "about.intro.title": "เราคือที่ปรึกษาด้านดิจิทัลแบบครบวงจร",
+  "about.intro.paragraph1": "Prime Digital Consultant Co., Ltd. เป็นบริษัทที่ให้คำปรึกษาด้านดิจิทัลแบบครบวงจร ตั้งแต่การวางกลยุทธ์ดิจิทัล การตลาดออนไลน์ การพัฒนาระบบแอปและเว็บไซต์ จัดการสื่อโซเชียล ไปจนถึงการวิเคราะห์ข้อมูลเชิงลึกเพื่อขับเคลื่อนองค์กร",
+  "about.intro.paragraph2": "เรามุ่งเน้นการนำเทคโนโลยีที่เหมาะสมมาปรับใช้จริง ไม่ขายของเกินจำเป็น และเน้นการปรับให้เข้ากับบริบทของแต่ละองค์กร",
+  "about.helpTitle": "เราช่วยองค์กรแบบไหน?",
+  "about.help.item1": "องค์กรที่ต้องการวางกลยุทธ์ดิจิทัล",
+  "about.help.item2": "หน่วยงานที่กำลังพัฒนาระบบใหม่",
+  "about.help.item3": "ทีมที่ต้องการใช้ข้อมูลและ Dashboard",
+  "about.help.item4": "ธุรกิจที่ต้องการยกระดับการตลาดออนไลน์",
+  "about.highlightsTitle": "จุดเด่นของ Prime Digital Consultant",
+  "about.highlights.item1.title": "ทีมงานมืออาชีพ",
+  "about.highlights.item1.desc": "เชี่ยวชาญทั้งด้านการตลาด เทคโนโลยี และข้อมูล พร้อมประสบการณ์ทำงานกับองค์กรรัฐบาลและเอกชน",
+  "about.highlights.item2.title": "การบริการใกล้ชิด ยืดหยุ่น",
+  "about.highlights.item2.desc": "ดูแลแบบพาร์ตเนอร์ เข้าใจบริบทจริงของลูกค้า และปรับแผนงานให้สอดคล้องกับสถานการณ์",
+  "about.highlights.item3.title": "เทคโนโลยีและนวัตกรรมที่เหมาะสม",
+  "about.highlights.item3.desc": "เลือกใช้เฉพาะเทคโนโลยีที่ตอบโจทย์และยั่งยืน ไม่เน้นขายของ ไม่เน้นของเกินจำเป็น",
+  "about.mindset.title": "วิธีคิดในการทำงานของเรา",
+  "about.mindset.paragraph1": "\"เราเชื่อว่าดิจิทัลคือเครื่องมือ ไม่ใช่คำตอบทั้งหมด แต่หากใช้อย่างถูกวิธีจะช่วยให้องค์กรเดินไปข้างหน้าอย่างมั่นคง\"",
+  "about.mindset.paragraph2": "ทุกโปรเจกต์ของเรามีพื้นฐานจากข้อมูลจริง การทดลอง และการปรับปรุงอย่างต่อเนื่อง เพื่อให้ระบบอยู่ได้ในระยะยาว",
+  "about.team.title": "ทีมของเรา",
+  "about.team.description": "ทีมงานประกอบด้วยที่ปรึกษา นักวิเคราะห์ และฝ่ายเทคนิค พร้อมประสบการณ์จากหลากหลายอุตสาหกรรมและภาครัฐ",
+  "about.team.note": "* ส่วนนี้สามารถเพิ่มภาพทีม บทบาท หรือโปรไฟล์สมาชิกภายหลังได้ เพื่อให้ลูกค้ามองเห็นภาพมากขึ้น",
+  "about.company.title": "เกี่ยวกับบริษัท",
+  "about.services.title": "บริการของเรา",
+
+  // === Services Page ===
+  "services.page.subtitle": "OUR SERVICES",
+  "services.page.title": "บริการด้านดิจิทัลที่เราเชี่ยวชาญ",
+  "services.page.description": "เราโฟกัสการช่วยองค์กรออกแบบและพัฒนาระบบดิจิทัลในส่วนที่มีความซับซ้อนสูง ทั้งด้านกลยุทธ์ สถาปัตยกรรมระบบ และการใช้ข้อมูลให้เกิดประโยชน์สูงสุด โดยเชื่อมโยงกับเป้าหมายทางธุรกิจเป็นหลัก",
+  "services.coverage": "สิ่งที่ครอบคลุม:",
+  "services.note": "* สามารถปรับ scope งานให้เหมาะกับบริบทขององค์กรได้",
+
+  // === Portfolio Page ===
+  "portfolio.page.subtitle": "OUR PORTFOLIO",
+  "portfolio.page.title": "ผลงานของเรา",
+  "portfolio.page.description": "โปรเจกต์ที่เราได้ออกแบบและส่งมอบให้กับลูกค้า แสดงถึงความเชี่ยวชาญและประสบการณ์ของทีมงาน",
+
+  // === Portfolio Detail ===
+  "portfolio.detail.subtitle": "แฟ้มผลงาน",
+  "portfolio.detail.overview": "ภาพรวมโปรเจกต์",
+  "portfolio.detail.problem": "ปัญหาก่อนเริ่มโปรเจกต์",
+  "portfolio.detail.solution": "แนวทางและการออกแบบของเรา",
+  "portfolio.detail.outcome": "ผลลัพธ์ที่เกิดขึ้น",
+  "portfolio.detail.gallery": "ภาพประกอบเพิ่มเติม",
+  "portfolio.detail.cta.text": "สนใจรายละเอียดเพิ่มเติมหรือต้องการให้เราช่วยออกแบบโปรเจกต์คล้ายกัน?",
+  "portfolio.detail.cta.button": "ติดต่อเรา",
+
+  // === Contact Section ===
+  "contact.subtitle": "CONTACT",
+  "contact.title": "ติดต่อทีม Prime Digital Consultant",
+  "contact.description": "หากคุณต้องการที่ปรึกษาด้านกลยุทธ์ดิจิทัล การออกแบบระบบ หรือแดชบอร์ดด้านข้อมูล สามารถส่งรายละเอียดเบื้องต้นถึงเราได้ ทีมงานจะติดต่อกลับโดยเร็วที่สุด",
+  "contact.leftTitle": "เล่าให้เราฟังสั้น ๆ ว่าต้องการความช่วยเหลือด้านไหน",
+  "contact.leftDescription": "คุณไม่จำเป็นต้องมี requirement ที่สมบูรณ์แล้ว แค่บอกปัญหาและเป้าหมายหลัก ๆ ของคุณ เราจะช่วยออกแบบแนวทางที่เหมาะสมให้",
+  "contact.otherChannels": "ช่องทางติดต่ออื่น",
+  "contact.email": "อีเมล",
+  "contact.phone": "โทร",
+  "contact.privacyNote": "* ข้อมูลที่คุณส่งจะถูกเก็บรักษาอย่างปลอดภัย และใช้เพื่อการติดต่อกลับเท่านั้น",
+  "contact.formSubmitAlert": "ตอนนี้เป็นแบบฟอร์มตัวอย่าง (ยังไม่เชื่อมระบบส่งจริง)",
+  "contact.form.name": "ชื่อ-นามสกุล",
+  "contact.form.namePlaceholder": "เช่น คุณสมชาย ดิจิทัลดี",
+  "contact.form.email": "อีเมลสำหรับติดต่อกลับ",
+  "contact.form.emailPlaceholder": "your@email.com",
+  "contact.form.organization": "องค์กร / หน่วยงาน (ถ้ามี)",
+  "contact.form.organizationPlaceholder": "เช่น Prime Digital Consultant / หน่วยงานภาครัฐ ฯลฯ",
+  "contact.form.message": "เล่าโจทย์ / ความต้องการของคุณ",
+  "contact.form.messagePlaceholder": "อธิบายปัญหา เป้าหมาย หรือระบบที่คุณอยากให้เราช่วยดู...",
+  "contact.form.submit": "ส่งข้อความถึงทีมงาน",
+
+  // === Footer ===
+  "footer.brand": "PRIME DIGITAL",
+  "footer.description": "พาร์ตเนอร์ด้านดิจิทัลที่ช่วยองค์กรวางกลยุทธ์ ออกแบบ และพัฒนาระบบ พร้อมทีมงานมืออาชีพที่เข้าใจทั้งธุรกิจ การตลาด และเทคโนโลยี",
+  "footer.menu.title": "เมนู",
+  "footer.contact.title": "ติดต่อเรา",
+  "footer.copyright": "© {year} บริษัท ไพรม์ ดิจิทัล คอนซัลแทนท์ จำกัด สงวนลิขสิทธิ์",
+  "footer.privacy": "นโยบายความเป็นส่วนตัว",
+  "footer.terms": "ข้อตกลงในการให้บริการ",
+
+  // === 404 Page ===
+  "404.title": "ไม่พบหน้าที่คุณต้องการ",
+  "404.description": "หน้าที่คุณกำลังมองหาอาจถูกย้ายหรือไม่มีอยู่อีกต่อไปแล้ว",
+  "404.home": "← กลับหน้าแรก",
+  "404.contact": "ติดต่อเรา",
+
+  // === Common ===
+  "common.readMore": "อ่านเพิ่มเติม",
+  "common.viewAll": "ดูทั้งหมด",
+  "common.learnMore": "เรียนรู้เพิ่มเติม",
+  "common.getStarted": "เริ่มต้นใช้งาน",
+  "common.contactUs": "ติดต่อเรา",
+};

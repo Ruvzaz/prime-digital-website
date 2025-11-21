@@ -2,43 +2,41 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-// 1) นำเข้า Navbar ที่เราสร้างเมื่อกี้
-//    เส้นทางนี้ หมายถึง: src/components/Navbar
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { Preloader } from "@/components/layout/Preloader";
 import { Footer } from "@/components/Footer";
-// 2) ตั้งค่า font Inter เป็น font หลักทั้งเว็บ
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { HtmlLangWrapper } from "@/components/layout/HtmlLangWrapper";
+
 const inter = Inter({ subsets: ["latin"] });
 
-// 3) metadata = ข้อมูล SEO พื้นฐานของเว็บ
 export const metadata: Metadata = {
-  title: "Prime Digital Consultant",
-  description: "Digital consulting for modern & data-driven business.",
+  title: "Prime Digital Consultant – ที่ปรึกษาด้านดิจิทัล ออกแบบกลยุทธ์และระบบ",
+  description:
+    "เราโฟกัสช่วยองค์กรออกแบบและพัฒนาระบบดิจิทัลที่ซับซ้อน ทั้งกลยุทธ์ สถาปัตยกรรม และ Data-Driven Decision Making",
+  metadataBase: new URL("https://primedigital.co"), // Replace with actual domain or localhost for dev
 };
 
-// 4) RootLayout = โครงหลักของทุกหน้าในเว็บ
-//    children = เนื้อหาของแต่ละหน้า (Home, Services, About, ...)
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    // 5) <html lang="th"> บอก browser ว่าใช้ภาษาไทยเป็นหลัก
-    <html lang="th">
-      {/* 6) ใส่ className จาก Inter (ฟอนต์) ให้กับทั้ง body */}
-      <body className={`${inter.className} bg-[#F5F7FA]`}>
-        {/* 7) Navbar อยู่คงที่ */}
-        <SmoothScroll>
-        <Preloader />
-        <Navbar />
-
-        {/* 8) ครอบ children ด้วย PageTransition */}
-        <PageTransition>{children}</PageTransition>
-        <Footer />
-        </SmoothScroll>
+    <html lang="th" suppressHydrationWarning>
+      <body className={`${inter.className} antialiased`}>
+        <LanguageProvider>
+          <HtmlLangWrapper>
+            <SmoothScroll>
+              <Preloader />
+              <Navbar />
+              <PageTransition>{children}</PageTransition>
+              <Footer />
+            </SmoothScroll>
+          </HtmlLangWrapper>
+        </LanguageProvider>
       </body>
     </html>
   );

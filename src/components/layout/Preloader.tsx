@@ -13,7 +13,7 @@ export function Preloader() {
     // แต่สำหรับ splash screen เพื่อความสวยงาม 1.5 - 2 วินาทีกำลังดี
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1800);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);

@@ -7,6 +7,8 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { Preloader } from "@/components/layout/Preloader";
+import { Footer } from "@/components/Footer";
 // 2) ตั้งค่า font Inter เป็น font หลักทั้งเว็บ
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,10 +32,12 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#F5F7FA]`}>
         {/* 7) Navbar อยู่คงที่ */}
         <SmoothScroll>
+        <Preloader />
         <Navbar />
 
         {/* 8) ครอบ children ด้วย PageTransition */}
         <PageTransition>{children}</PageTransition>
+        <Footer />
         </SmoothScroll>
       </body>
     </html>

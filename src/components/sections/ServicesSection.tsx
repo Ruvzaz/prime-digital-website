@@ -35,7 +35,7 @@ export function ServicesSection() {
           {SERVICES.map((service: Service) => (
             <article
               key={service.id}
-              className="bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-[0_12px_30px_rgba(15,23,42,0.06)] hover:shadow-xl hover:border-[#B0BBDF] hover:-translate-y-1 transition-all"
+              className="bg-white rounded-2xl border border-gray-200 p-6 transition-colors duration-300 hover:border-gray-300"
             >
               <div className="w-10 h-10 rounded-xl bg-[#E3E7F8] flex items-center justify-center mb-4">
                 <span className="text-[#0D278A] text-lg">{service.icon}</span>

@@ -59,7 +59,7 @@ export function PortfolioPreviewSection() {
                 key={project.id}
                 className="shrink-0 basis-full md:basis-1/3 px-3"
               >
-                <article className="group bg-[#FCFCFD] rounded-2xl border border-[#E5E7EB] overflow-hidden hover:border-[#B0BBDF] hover:shadow-xl hover:-translate-y-1 transition-all h-full flex flex-col">
+                <article className="group bg-[#FCFCFD] rounded-2xl border border-gray-200 overflow-hidden transition-colors duration-300 hover:border-gray-300 h-full flex flex-col">
                   {/* รูปด้านบน */}
                   <div className="relative aspect-[4/3] bg-[#E5E7EB]">
                     <Image

@@ -16,12 +16,12 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-transparent ">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
 
 
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-3">
         {/* เม็ดแคปซูลหลัก */}
-        <div className="bg-white rounded-full border border-[#E5E7EB] shadow-[0_12px_30px_rgba(15,23,42,0.08)] flex items-center justify-between gap-2 px-4 md:px-6 h-14 md:h-16">
+        <div className="bg-white/90 backdrop-blur-md rounded-full border border-white/20 shadow-sm flex items-center justify-between gap-2 px-4 md:px-6 h-14 md:h-16">
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -29,7 +29,7 @@ export function Navbar() {
               alt="Prime Digital Consultant"
               width={120}
               height={40}
-              className="h-7 md:h-8 w-auto object-contain"
+              className="h-16 md:h-24 w-auto object-contain"
             />
           </Link>
 

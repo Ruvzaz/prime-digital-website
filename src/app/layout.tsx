@@ -27,7 +27,7 @@ export default function RootLayout({
     // 5) <html lang="th"> บอก browser ว่าใช้ภาษาไทยเป็นหลัก
     <html lang="th">
       {/* 6) ใส่ className จาก Inter (ฟอนต์) ให้กับทั้ง body */}
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-[#F5F7FA]`}>
         {/* 7) Navbar อยู่คงที่ */}
         <SmoothScroll>
         <Navbar />

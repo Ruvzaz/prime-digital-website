@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
+
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { useState } from "react";
 
 const navItems = [
@@ -13,102 +13,115 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-[#E5E7EB]">
-      {/* แถวบน: โลโก้ + เมนู (desktop) + ปุ่ม hamburger (mobile) */}
-      <div className="max-w-6xl mx-auto px-4 md:px-6 h-14 flex items-center justify-between">
-        {/* LOGO / BRAND */}
-        <Link
-          href="/"
-          className="text-base md:text-lg font-semibold tracking-wide text-[#0D278A]"
-        >
-          <Image
-          src="/images/prime-logo.png"         // 👉 เปลี่ยนเป็น path ของโลโก้คุณ
-    alt="Prime Digital Consultant Logo"
-    width={120}             // 👉 ปรับขนาดตามต้องการ
-    height={40}
-    className="object-contain"
-          />
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
 
-        {/* เมนูปกติ (แสดงเฉพาะ >= md) */}
-        <div className="hidden md:flex items-center gap-6 text-sm text-[#4B5563]">
-          {navItems.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
 
-            return (
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-3">
+        {/* เม็ดแคปซูลหลัก */}
+        <div className="bg-white/90 backdrop-blur-md rounded-full border border-white/20 shadow-sm flex items-center justify-between gap-2 px-4 md:px-6 h-14 md:h-16">
+          {/* LOGO */}
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/images/prime-logo.png"
+              alt="Prime Digital Consultant"
+              width={120}
+              height={40}
+              className="h-16 md:h-24 w-auto object-contain"
+            />
+          </Link>
+
+          {/* NAV LINKS – เฉพาะจอใหญ่ */}
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#4B5563]">
+            {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`hover:text-[#0D278A] transition ${
-                  isActive ? "text-[#0D278A] font-semibold" : ""
-                }`}
+                className="hover:text-[#0D278A] transition-colors"
               >
                 {item.label}
               </Link>
-            );
-          })}
-        </div>
+            ))}
+          </nav>
 
-        {/* ปุ่ม Hamburger (แสดงเฉพาะ < md) */}
-        <button
-          type="button"
-          className="md:hidden inline-flex flex-col justify-center items-center w-9 h-9 rounded-full border border-[#D1D5DB] bg-white shadow-sm"
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-label="Toggle navigation"
-        >
-          <span
-            className={`block w-4 h-0.5 rounded-full bg-[#111827] transition-transform ${
-              isOpen ? "translate-y-1 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block w-4 h-0.5 rounded-full bg-[#111827] my-0.5 transition-opacity ${
-              isOpen ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <span
-            className={`block w-4 h-0.5 rounded-full bg-[#111827] transition-transform ${
-              isOpen ? "-translate-y-1 -rotate-45" : ""
-            }`}
-          />
-        </button>
+          {/* CTA Button – เฉพาะจอใหญ่ */}
+          <div className="hidden md:flex items-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-[#0D278A] to-[#2563EB] text-white text-xs md:text-sm font-semibold shadow-md hover:shadow-lg hover:brightness-110 transition"
+            >
+              นัดหมายปรึกษา
+            </Link>
+          </div>
+
+          {/* HAMBURGER – เฉพาะมือถือ */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border border-[#E5E7EB] text-[#111827] hover:bg-[#F3F4F6] transition"
+            aria-label="Toggle menu"
+          >
+            <span className="sr-only">Toggle navigation</span>
+            {/* ไอคอน 3 ขีดง่าย ๆ */}
+            <div className="space-y-[5px]">
+              <span
+                className={`block h-[2px] w-5 rounded-full bg-[#111827] transition-transform ${
+                  open ? "translate-y-[3.5px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-5 rounded-full bg-[#111827] transition-opacity ${
+                  open ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-5 rounded-full bg-[#111827] transition-transform ${
+                  open ? "-translate-y-[3.5px] -rotate-45" : ""
+                }`}
+              />
+            </div>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Overlay Menu */}
-      {isOpen && (
-        <div className="absolute right-0 top-14 md:hidden z-40">
-          <div className="w-48 rounded-2xl bg-white/95 shadow-[0_18px_40px_rgba(15,23,42,0.18)] border border-[#E5E7EB] py-2">
-            {navItems.map((item) => {
-              const isActive =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href);
+      {/* MOBILE OVERLAY MENU แบบกล่องเล็กมุมขวา */}
+      {open && (
+        <div className="md:hidden fixed inset-0 z-30" onClick={() => setOpen(false)}>
+          {/* คลิกพื้นหลังปิดเมนู */}
+          <div className="absolute inset-0 bg-black/20" />
 
-              return (
+          {/* กล่องเมนูมุมขวาบน */}
+          <div
+            className="absolute top-16 right-4 w-56 bg-white rounded-2xl shadow-[0_18px_45px_rgba(15,23,42,0.18)] border border-[#E5E7EB] p-4 space-y-3"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <nav className="flex flex-col gap-2 text-sm text-[#111827]">
+              {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-2.5 text-sm text-left rounded-xl ${
-                    isActive
-                      ? "bg-[#EEF2FF] text-[#0D278A] font-semibold"
-                      : "text-[#4B5563] hover:bg-[#F3F4F6]"
-                  }`}
+                  className="py-1 hover:text-[#0D278A] transition-colors"
+                  onClick={() => setOpen(false)}
                 >
                   {item.label}
                 </Link>
-              );
-            })}
+              ))}
+            </nav>
+
+            <hr className="border-[#E5E7EB]" />
+
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="block text-center w-full px-4 py-2 rounded-full bg-gradient-to-r from-[#0D278A] to-[#2563EB] text-white text-xs font-semibold shadow-md"
+            >
+              นัดหมายปรึกษา
+            </Link>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

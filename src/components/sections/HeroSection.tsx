@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0D278A] min-h-[65vh] ">
+    <section className="relative overflow-hidden bg-[#0D278A] min-h-screen flex items-center">
       {/* พื้นหลังรูปตึกแบบเต็มจอแนวนอน */}
       <div className="absolute inset-0">
         <Image
@@ -56,7 +56,7 @@ export function HeroSection() {
               {/* ปุ่มรอง: นัดหมายปรึกษา → ไปหน้า Contact */}
               <Link
                 href="/contact"
-                className="inline-flex items-center px-5 py-2.5 rounded-full border border-[#5A73C3] bg-white text-xs md:text-sm font-semibold text-[#111827] shadow-lg hover:bg-[#F5F7FA] transition"
+                className="inline-flex items-center px-6 py-3 rounded-full border border-gray-200 bg-white text-xs md:text-sm font-semibold text-[#111827] hover:bg-gray-50 hover:border-gray-300 transition-colors"
               >
                 นัดหมายปรึกษา
               </Link>
@@ -64,7 +64,7 @@ export function HeroSection() {
               {/* ปุ่มหลัก: ดูผลงานของเรา → ไปหน้า Portfolio */}
               <Link
                 href="/portfolio"
-                className="inline-flex items-center px-5 py-2.5 rounded-full border border-white/70 text-white text-xs md:text-sm font-semibold shadow-lg bg-[#1c328a] hover:bg-[#334fee] transition"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-[#0D278A] text-white text-xs md:text-sm font-semibold hover:bg-[#0A1E6A] transition-colors"
               >
                 ดูผลงานของเรา
               </Link>

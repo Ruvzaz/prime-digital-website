@@ -5,7 +5,7 @@ html {
 }
 
 :root {
-  --background: #ffffff;
+  --background: #F5F7FA;
   --foreground: #171717;
 }
 
@@ -16,12 +16,7 @@ html {
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+
 
 body {
   background: var(--background);

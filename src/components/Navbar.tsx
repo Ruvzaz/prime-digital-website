@@ -3,17 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", labelKey: "nav.home" },
+  { href: "/services", labelKey: "nav.services" },
+  { href: "/portfolio", labelKey: "nav.portfolio" },
+  { href: "/about", labelKey: "nav.about" },
+  
 ];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
@@ -41,18 +43,29 @@ export function Navbar() {
                 href={item.href}
                 className="hover:text-[#0D278A] transition-colors"
               >
-                {item.label}
+                {t(item.labelKey)}
               </Link>
             ))}
           </nav>
 
-          {/* CTA Button – เฉพาะจอใหญ่ */}
-          <div className="hidden md:flex items-center">
+          {/* Language Switcher + CTA Button – เฉพาะจอใหญ่ */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Language Switcher */}
+            <button
+              onClick={() => setLanguage(language === "th" ? "en" : "th")}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:border-gray-300 transition-colors text-xs font-medium text-gray-700"
+              aria-label="Switch language"
+            >
+              <span className="text-gray-400">🌐</span>
+              <span>{language === "th" ? "TH" : "EN"}</span>
+            </button>
+
+            {/* CTA Button */}
             <Link
               href="/contact"
               className="inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-[#0D278A] to-[#2563EB] text-white text-xs md:text-sm font-semibold shadow-md hover:shadow-lg hover:brightness-110 transition"
             >
-              นัดหมายปรึกษา
+              {t("nav.cta")}
             </Link>
           </div>
 
@@ -105,10 +118,19 @@ export function Navbar() {
                   className="py-1 hover:text-[#0D278A] transition-colors"
                   onClick={() => setOpen(false)}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               ))}
             </nav>
+
+            {/* Language Switcher - Mobile */}
+            <button
+              onClick={() => setLanguage(language === "th" ? "en" : "th")}
+              className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-full border border-gray-200 bg-gray-50 text-xs font-medium text-gray-700"
+            >
+              <span>🌐</span>
+              <span>{language === "th" ? "ไทย (TH)" : "English (EN)"}</span>
+            </button>
 
             <hr className="border-[#E5E7EB]" />
 
@@ -117,7 +139,7 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className="block text-center w-full px-4 py-2 rounded-full bg-gradient-to-r from-[#0D278A] to-[#2563EB] text-white text-xs font-semibold shadow-md"
             >
-              นัดหมายปรึกษา
+              {t("nav.cta")}
             </Link>
           </div>
         </div>

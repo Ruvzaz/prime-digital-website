@@ -1,7 +1,11 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-[#0D278A] text-white pt-16 pb-8">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -9,39 +13,35 @@ export function Footer() {
           {/* 1) Brand / Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-2 bg-white/10 w-fit px-4 py-2 rounded-xl backdrop-blur-sm">
-               {/* Note: Using a white version of logo or filter if needed. 
-                   For now, using text or assuming the image works on dark if it's transparent. 
-                   Ideally, use a white-text logo variant. */}
-              <span className="text-xl font-bold tracking-wide">PRIME DIGITAL</span>
+              <span className="text-xl font-bold tracking-wide">{t("footer.brand")}</span>
             </div>
             <p className="text-white/80 text-sm leading-relaxed max-w-sm">
-              พาร์ตเนอร์ด้านดิจิทัลที่ช่วยองค์กรวางกลยุทธ์ ออกแบบ และพัฒนาระบบ
-              พร้อมทีมงานมืออาชีพที่เข้าใจทั้งธุรกิจ การตลาด และเทคโนโลยี
+              {t("footer.description")}
             </p>
           </div>
 
           {/* 2) Quick Links */}
           <div>
-            <h4 className="text-lg font-bold mb-6">เมนู</h4>
+            <h4 className="text-lg font-bold mb-6">{t("footer.menu.title")}</h4>
             <ul className="space-y-4 text-sm text-white/80">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
-                  หน้าแรก (Home)
+                  {t("nav.home")}
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-white transition-colors">
-                  บริการของเรา (Services)
+                  {t("nav.services")}
                 </Link>
               </li>
               <li>
                 <Link href="/portfolio" className="hover:text-white transition-colors">
-                  ผลงาน (Portfolio)
+                  {t("nav.portfolio")}
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
-                  เกี่ยวกับเรา (About)
+                  {t("nav.about")}
                 </Link>
               </li>
             </ul>
@@ -49,7 +49,7 @@ export function Footer() {
 
           {/* 3) Contact */}
           <div>
-            <h4 className="text-lg font-bold mb-6">ติดต่อเรา</h4>
+            <h4 className="text-lg font-bold mb-6">{t("footer.contact.title")}</h4>
             <ul className="space-y-4 text-sm text-white/80">
               <li className="flex items-start gap-3">
                 <span className="opacity-70">Email:</span>
@@ -75,11 +75,16 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Footer Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/60">
-          <p>© {new Date().getFullYear()} Prime Digital Consultant Co., Ltd. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          <p>{t("footer.copyright").replace("{year}", new Date().getFullYear().toString())}</p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="hover:text-white/80 transition">
+              {t("footer.privacy")}
+            </Link>
+            <Link href="/terms" className="hover:text-white/80 transition">
+              {t("footer.terms")}
+            </Link>
           </div>
         </div>
       </div>

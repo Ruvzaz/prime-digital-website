@@ -2,59 +2,56 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-
-import { PROJECTS, type Project } from "@/lib/projects";
+import { PROJECTS, getProjectContent } from "@/lib/projects";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function PortfolioPreviewSection() {
-  // ตั้งค่า Embla ให้เลื่อนทีละ 1 การ์ด และวนลูป
-  const [emblaRef] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      slidesToScroll: 1,
-    },
-    [
-      Autoplay({
-        delay: 3500, // 3.5 วินาทีต่อการขยับครั้งนึง
-        stopOnInteraction: false,
-        stopOnMouseEnter: true,
-      }),
-    ]
-  );
+  const { language, t } = useLanguage();
+  const projects = PROJECTS.slice(0, 6).map(p => getProjectContent(p, language));
+  
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: false,
+    dragFree: true,
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   return (
     <section className="bg-white py-16 md:py-20">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
-        {/* Header */}
-        <div className="flex items-end justify-between gap-4 mb-10">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.2em] text-[#5A73C3] uppercase">
-              PORTFOLIO
-            </p>
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#111827]">
-              ตัวอย่างผลงานที่คัดมาให้คุณดู
-            </h2>
-            <p className="mt-2 text-sm text-[#4B5563] max-w-xl">
-              โปรเจกต์ด้านระบบดิจิทัลและข้อมูลที่เราได้ร่วมงานกับองค์กรภาครัฐและเอกชน
-              โดยเน้นผลลัพธ์ที่ใช้งานได้จริงในบริบทขององค์กร.
-            </p>
-          </div>
-
-          <Link
-            href="/portfolio"
-            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full border border-[#5A73C3] text-[#0D278A] text-xs font-semibold bg-white hover:bg-[#EEF2FF] transition"
-          >
-            ดูผลงานทั้งหมด
-          </Link>
+        {/* หัวข้อ */}
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <p className="text-xs md:text-sm uppercase tracking-widest text-[#0D278A] font-bold mb-3">
+            {t("portfolio.subtitle")}
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0F172A]">
+            {t("portfolio.title")}
+          </h2>
+          <p className="text-sm md:text-base text-[#64748B] leading-relaxed">
+            {t("portfolio.description")}
+          </p>
         </div>
 
-        {/* === Embla viewport === */}
+        {/* Carousel */}
         <div className="overflow-hidden" ref={emblaRef}>
-          {/* track = จะถูกเลื่อนซ้ายขวา */}
           <div className="flex">
-            {PROJECTS.map((project: Project) => (
+            {projects.map((project) => (
               <div
                 key={project.id}
                 className="shrink-0 basis-full md:basis-1/3 px-3"
@@ -90,9 +87,9 @@ export function PortfolioPreviewSection() {
 
                     <Link
                       href={`/portfolio/${project.slug}`}
-                      className="inline-flex items-center text-xs font-semibold text-[#0D278A] hover:underline mt-2"
+                      className="inline-flex items-center text-xs font-semibold text-[#0D278A] hover:underline mt-auto"
                     >
-                      ดูรายละเอียดโปรเจกต์ →
+                      {t("portfolio.view")} →
                     </Link>
                   </div>
                 </article>
@@ -101,13 +98,13 @@ export function PortfolioPreviewSection() {
           </div>
         </div>
 
-        {/* ปุ่มดูทั้งหมดสำหรับ mobile */}
-        <div className="mt-6 md:hidden text-center">
+        {/* CTA */}
+        <div className="flex justify-center mt-10">
           <Link
             href="/portfolio"
-            className="inline-flex items-center px-5 py-2.5 rounded-full border border-[#5A73C3] text-[#0D278A] text-xs font-semibold bg-white hover:bg-[#EEF2FF] transition"
+            className="inline-flex items-center px-6 py-3 rounded-full bg-[#0D278A] text-white text-sm font-semibold hover:bg-[#0A1E6A] transition-colors"
           >
-            ดูผลงานทั้งหมด
+            {t("portfolio.cta")} →
           </Link>
         </div>
       </div>

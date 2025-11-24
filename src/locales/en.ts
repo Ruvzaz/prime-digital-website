@@ -74,13 +74,13 @@ export const en = {
     "portfolio.page.subtitle": "OUR PORTFOLIO",
     "portfolio.page.title": "Our Work",
     "portfolio.page.description": "Projects we've designed and delivered to clients, showcasing our team's expertise and experience",
-
     // === Portfolio Detail ===
     "portfolio.detail.subtitle": "PORTFOLIO",
     "portfolio.detail.overview": "Project Overview",
     "portfolio.detail.problem": "Challenges Before the Project",
     "portfolio.detail.solution": "Our Approach and Design",
     "portfolio.detail.outcome": "Results Achieved",
+    "portfolio.detail.scope": "Scope of Work",
     "portfolio.detail.gallery": "Additional Images",
     "portfolio.detail.cta.text": "Interested in learning more or need help designing a similar project?",
     "portfolio.detail.cta.button": "Contact Us",

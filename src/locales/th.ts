@@ -80,6 +80,7 @@ export const th = {
   "portfolio.detail.problem": "ปัญหาก่อนเริ่มโปรเจกต์",
   "portfolio.detail.solution": "แนวทางและการออกแบบของเรา",
   "portfolio.detail.outcome": "ผลลัพธ์ที่เกิดขึ้น",
+  "portfolio.detail.scope": "ขอบเขตการดำเนินงาน",
   "portfolio.detail.gallery": "ภาพประกอบเพิ่มเติม",
   "portfolio.detail.cta.text": "สนใจรายละเอียดเพิ่มเติมหรือต้องการให้เราช่วยออกแบบโปรเจกต์คล้ายกัน?",
   "portfolio.detail.cta.button": "ติดต่อเรา",

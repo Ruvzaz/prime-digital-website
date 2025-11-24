@@ -34,8 +34,6 @@ export const th = {
   "portfolio.view": "ดูรายละเอียด",
   "portfolio.cta": "สนใจโปรเจกต์นี้",
   "portfolio.technicalNote": "* รายละเอียดเชิงเทคนิคและ stack สามารถพูดคุยเพิ่มเติมได้",
-
-  // === About Page ===
   "about.subtitle": "ABOUT US",
   "about.companyName": "Prime Digital Consultant Co., Ltd.",
   "about.title": "เกี่ยวกับเรา",
@@ -82,9 +80,11 @@ export const th = {
   "portfolio.detail.problem": "ปัญหาก่อนเริ่มโปรเจกต์",
   "portfolio.detail.solution": "แนวทางและการออกแบบของเรา",
   "portfolio.detail.outcome": "ผลลัพธ์ที่เกิดขึ้น",
+  "portfolio.detail.scope": "ขอบเขตการดำเนินงาน",
   "portfolio.detail.gallery": "ภาพประกอบเพิ่มเติม",
   "portfolio.detail.cta.text": "สนใจรายละเอียดเพิ่มเติมหรือต้องการให้เราช่วยออกแบบโปรเจกต์คล้ายกัน?",
   "portfolio.detail.cta.button": "ติดต่อเรา",
+  "portfolio.trusted_by": "Trusted By",
 
   // === Contact Section ===
   "contact.subtitle": "CONTACT",
@@ -128,4 +128,5 @@ export const th = {
   "common.learnMore": "เรียนรู้เพิ่มเติม",
   "common.getStarted": "เริ่มต้นใช้งาน",
   "common.contactUs": "ติดต่อเรา",
+  "consult_partner.title": "ที่ปรึกษาและพาร์ทเนอร์",
 };

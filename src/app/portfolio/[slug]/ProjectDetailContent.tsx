@@ -67,6 +67,19 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
 
           {/* Detail Sections */}
           <div className="space-y-8">
+            {content.scopeOfWork && content.scopeOfWork.length > 0 && (
+              <section className="border-l-4 border-[#0D278A] pl-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  {t("portfolio.detail.scope")}
+                </h3>
+                <ul className="list-disc list-outside ml-5 space-y-2 text-base text-gray-600 leading-relaxed">
+                  {content.scopeOfWork.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {content.problem && (
               <section className="border-l-4 border-[#0D278A] pl-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">

@@ -4,13 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 import { PROJECTS, getProjectContent } from "@/lib/projects";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export function PortfolioPreviewSection() {
   const { language, t } = useLanguage();
   const projects = PROJECTS.slice(0, 6).map(p => getProjectContent(p, language));
-  
+
+  // Project Carousel
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: false,
@@ -31,6 +33,31 @@ export function PortfolioPreviewSection() {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi, onSelect]);
+
+  // Client Logo Carousel
+  const [logoEmblaRef] = useEmblaCarousel(
+    { loop: true, dragFree: true },
+    [
+      AutoScroll({
+        playOnInit: true,
+        speed: 1,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      })
+    ]
+  );
+
+  const clientLogos = [
+    "/images/agencyLogo/Alogo1.png",
+    "/images/agencyLogo/Alogo2.png",
+    "/images/agencyLogo/Alogo3.png",
+    "/images/agencyLogo/Alogo4.png",
+    "/images/agencyLogo/Alogo5.png",
+    "/images/agencyLogo/Alogo6.png",
+    "/images/agencyLogo/Alogo7.png",
+    "/images/agencyLogo/Alogo8.png",
+    "/images/agencyLogo/Alogo9.png",
+  ];
 
   return (
     <section className="bg-white py-16 md:py-20">
@@ -99,13 +126,43 @@ export function PortfolioPreviewSection() {
         </div>
 
         {/* CTA */}
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-10 mb-20">
           <Link
             href="/portfolio"
             className="inline-flex items-center px-6 py-3 rounded-full bg-[#0D278A] text-white text-sm font-semibold hover:bg-[#0A1E6A] transition-colors"
           >
             {t("portfolio.cta")} →
           </Link>
+        </div>
+      </div>
+
+      {/* Trusted By / Client Logos - Full Width */}
+      <div className="w-full border-gray-200 pt-16">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 mb-10">
+          <p className="text-center text-xs md:text-sm uppercase tracking-widest text-[#0D278A] font-bold mb-3">
+            {t("portfolio.trusted_by")}
+          </p>
+        </div>
+
+        <div className="w-full overflow-hidden py-1" ref={logoEmblaRef}>
+          <div className="flex touch-pan-y">
+            {/* Loop logos multiple times to ensure smooth infinite scrolling effect if needed, 
+                but Embla loop:true handles it well with enough items. 
+                We'll map them once here, Embla handles the loop. */
+            }
+            {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((logo, index) => (
+              <div key={index} className="flex-[0_0_50%] md:flex-[0_0_20%] min-w-0 px-4 flex items-center justify-center">
+                <div className="relative h-36 w-36 transition-transform duration-300 hover:scale-110 cursor-pointer">
+                  <Image
+                    src={logo}
+                    alt={`Client Logo ${index + 1}`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

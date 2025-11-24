@@ -20,7 +20,6 @@ export const en = {
     "hero.card.item3": "○ Dashboard & Data Insights for Executives",
     "hero.card.footer": "We design tailored approaches that fit your organization's real environment, not one-size-fits-all solutions.",
 
-    // === Services Section ===
     "services.subtitle": "OUR SERVICES",
     "services.title": "Core Services",
     "services.description": "From digital strategy to system architecture and delivering practical solutions that work in your organization.",
@@ -75,16 +74,17 @@ export const en = {
     "portfolio.page.subtitle": "OUR PORTFOLIO",
     "portfolio.page.title": "Our Work",
     "portfolio.page.description": "Projects we've designed and delivered to clients, showcasing our team's expertise and experience",
-
     // === Portfolio Detail ===
     "portfolio.detail.subtitle": "PORTFOLIO",
     "portfolio.detail.overview": "Project Overview",
     "portfolio.detail.problem": "Challenges Before the Project",
     "portfolio.detail.solution": "Our Approach and Design",
     "portfolio.detail.outcome": "Results Achieved",
+    "portfolio.detail.scope": "Scope of Work",
     "portfolio.detail.gallery": "Additional Images",
     "portfolio.detail.cta.text": "Interested in learning more or need help designing a similar project?",
     "portfolio.detail.cta.button": "Contact Us",
+    "portfolio.trusted_by": "Trusted By",
 
     // === Contact Section ===
     "contact.subtitle": "CONTACT",
@@ -128,4 +128,5 @@ export const en = {
     "common.learnMore": "Learn More",
     "common.getStarted": "Get Started",
     "common.contactUs": "Contact Us",
+    "consult_partner.title": "Consult Partner",
 };

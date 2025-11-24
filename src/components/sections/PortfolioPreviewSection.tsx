@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { PROJECTS, getProjectContent } from "@/lib/projects";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -15,9 +16,11 @@ export function PortfolioPreviewSection() {
   // Project Carousel
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    loop: false,
+    loop: true,
     dragFree: true,
-  });
+  }, [
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {

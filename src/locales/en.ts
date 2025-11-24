@@ -20,7 +20,6 @@ export const en = {
     "hero.card.item3": "○ Dashboard & Data Insights for Executives",
     "hero.card.footer": "We design tailored approaches that fit your organization's real environment, not one-size-fits-all solutions.",
 
-    // === Services Section ===
     "services.subtitle": "OUR SERVICES",
     "services.title": "Core Services",
     "services.description": "From digital strategy to system architecture and delivering practical solutions that work in your organization.",
@@ -85,6 +84,7 @@ export const en = {
     "portfolio.detail.gallery": "Additional Images",
     "portfolio.detail.cta.text": "Interested in learning more or need help designing a similar project?",
     "portfolio.detail.cta.button": "Contact Us",
+    "portfolio.trusted_by": "Trusted By",
 
     // === Contact Section ===
     "contact.subtitle": "CONTACT",
@@ -128,4 +128,5 @@ export const en = {
     "common.learnMore": "Learn More",
     "common.getStarted": "Get Started",
     "common.contactUs": "Contact Us",
+    "consult_partner.title": "Consult Partner",
 };

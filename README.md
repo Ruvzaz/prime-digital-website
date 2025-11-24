@@ -30,36 +30,6 @@ The website is designed with:
 | **TypeScript** | latest | Static typing |
 | **Vercel** | optional | Deployment |
 
----
-
-## 📁 Project Structure (App Router)
-
-src/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx                   → Home
-│   ├── services/
-│   │   └── page.tsx               → Services
-│   ├── portfolio/
-│   │   └── page.tsx               → Portfolio
-│   └── about/
-│       └── page.tsx               → About
-│
-├── components/
-│   ├── Navbar.tsx
-│   ├── Footer.tsx
-│   ├── SectionTitle.tsx
-│   ├── ServiceCard.tsx
-│   └── PortfolioCard.tsx
-│
-├── styles/
-│   └── globals.css
-│
-└── public/
-    └── images/
-
-
----
 
 ## 🔧 Requirements
 

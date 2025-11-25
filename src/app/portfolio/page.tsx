@@ -8,11 +8,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 // นี่คือหน้า /portfolio
 export default function PortfolioPage() {
   const { language, t } = useLanguage();
-  
+
   return (
     // พื้นหลังหลักของหน้าทั้งหน้า (ใช้สีเดียวกับ Global)
     <main className="min-h-screen pt-24 md:pt-32 pb-20">
-      
+
       {/* 1) Header / Hero Section */}
       <section className="max-w-6xl mx-auto px-4 md:px-6 mb-16 md:mb-24 text-center">
         <p className="text-xs font-bold tracking-[0.25em] text-[#0D278A] uppercase mb-4">
@@ -28,7 +28,7 @@ export default function PortfolioPage() {
 
       {/* 2) ส่วนรายการโปรเจกต์ทั้งหมด */}
       <section className="max-w-6xl mx-auto px-4 md:px-6 space-y-12">
-        {PROJECTS.map((project) => (
+        {PROJECTS.filter((p) => p.slug).map((project) => (
           <ProjectRow key={project.id} project={project} language={language} />
         ))}
       </section>
@@ -46,7 +46,7 @@ type ProjectRowProps = {
 function ProjectRow({ project, language }: ProjectRowProps) {
   const { t } = useLanguage();
   const content = getProjectContent(project, language);
-  
+
   return (
     <article className="bg-white rounded-2xl border border-gray-200 overflow-hidden transition-colors duration-300 hover:border-gray-300">
       <div className="grid md:grid-cols-2">

@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Generate Static Params for Static Export (Optional but good for performance)
 export async function generateStaticParams() {
-  return PROJECTS.map((project) => ({
+  return PROJECTS.filter((p) => p.slug).map((project) => ({
     slug: project.slug,
   }));
 }

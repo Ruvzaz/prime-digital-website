@@ -11,7 +11,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export function PortfolioPreviewSection() {
   const { language, t } = useLanguage();
-  const projects = PROJECTS.slice(0, 6).map(p => getProjectContent(p, language));
+  const projects = PROJECTS.filter((p) => p.slug).map((p) => getProjectContent(p, language));
 
   // Project Carousel
   const [emblaRef, emblaApi] = useEmblaCarousel({

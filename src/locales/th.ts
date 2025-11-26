@@ -115,7 +115,7 @@ export const th = {
   "footer.contact.company": "บริษัท ไพร์ม ดิจิทัล คอนซัลแทนท์ จำกัด",
   "footer.contact.address": "39/19 หมู่ที่ 6 ตำบลสามพราน\nอำเภอสามพราน จังหวัดนครปฐม 73110",
   "footer.contact.phone": "02-1234567",
-  "footer.contact.email": "contact@primedigital.co.th",
+  "footer.contact.email": "primedigital.consultant@gmail.com",
   "footer.contact.time": "จันทร์ - ศุกร์\n09.00 - 17.00 น.",
   "footer.copyright": "© {year} บริษัท ไพร์ม ดิจิทัล คอนซัลแทนท์ จำกัด สงวนลิขสิทธิ์",
   "footer.privacy": "นโยบายความเป็นส่วนตัว",

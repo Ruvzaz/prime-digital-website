@@ -119,7 +119,7 @@ export const en = {
     "footer.contact.time": "Monday - Friday \n09:00 - 17:00",
     "footer.contact.address": "39/19 Moo 6, Tambon Sam Phran, Amphoe Sam Phran, Nakhon Pathom 73110",
     "footer.contact.phone": "02-123-4567",
-    "footer.contact.email": "contact@primedigital.co.th",
+    "footer.contact.email": "primedigital.consultant@gmail.com",
     "footer.contact.company": "Prime Digital Consultant Co., Ltd.",
     "footer.email": "Email",
     "footer.phone": "Phone",

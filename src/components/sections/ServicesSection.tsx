@@ -40,7 +40,7 @@ export function ServicesSection() {
                 className="bg-white rounded-2xl border border-gray-200 p-6 transition-colors duration-300 hover:border-gray-300"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#E3E7F8] flex items-center justify-center mb-4">
-                  <span className="text-[#0D278A] text-lg">{service.icon}</span>
+                  <span className="text-[#0D278A] text-3xl">{service.icon}</span>
                 </div>
 
                 <h3 className="text-lg font-semibold text-[#111827] mb-2">

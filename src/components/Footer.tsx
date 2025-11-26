@@ -30,7 +30,7 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <span className="opacity-70">{t("footer.email")}:</span>
                 <a href="mailto:contact@primedigital.co.th" className="hover:text-white transition-colors">
-                  contact@primedigital.co.th
+                  {t("footer.contact.email")}
                 </a>
               </li>
               <li className="flex items-start gap-3">

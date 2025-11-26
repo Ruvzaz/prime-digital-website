@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins, Prompt } from "next/font/google";
 import "./globals.css";
 
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
@@ -10,7 +10,19 @@ import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { HtmlLangWrapper } from "@/components/layout/HtmlLangWrapper";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-poppins",
+});
+
+const prompt = Prompt({
+  subsets: ["thai", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-prompt",
+});
 
 export const metadata: Metadata = {
   title: "Prime Digital Consultant – ที่ปรึกษาด้านดิจิทัล ออกแบบกลยุทธ์และระบบ",
@@ -26,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${poppins.variable} ${prompt.variable} antialiased font-sans`}>
         <LanguageProvider>
           <HtmlLangWrapper>
             <SmoothScroll>

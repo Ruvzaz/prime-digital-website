@@ -115,6 +115,16 @@ export const en = {
     "footer.copyright": "© {year} Prime Digital Consultant Co., Ltd. All rights reserved.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
+    "footer.time": "Time",
+    "footer.contact.time": "Monday - Friday \n09:00 - 17:00",
+    "footer.contact.address": "39/19 Moo 6, Tambon Sam Phran, Amphoe Sam Phran, Nakhon Pathom 73110",
+    "footer.contact.phone": "02-123-4567",
+    "footer.contact.email": "contact@primedigital.co.th",
+    "footer.contact.company": "Prime Digital Consultant Co., Ltd.",
+    "footer.email": "Email",
+    "footer.phone": "Phone",
+    "footer.address": "Address",
+
 
     // === 404 Page ===
     "404.title": "Page Not Found",

@@ -11,7 +11,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export function PortfolioPreviewSection() {
   const { language, t } = useLanguage();
-  const projects = PROJECTS.slice(0, 6).map(p => getProjectContent(p, language));
+  const projects = PROJECTS.filter((p) => p.slug).map((p) => getProjectContent(p, language));
 
   // Project Carousel
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -140,12 +140,7 @@ export function PortfolioPreviewSection() {
       </div>
 
       {/* Trusted By / Client Logos - Full Width */}
-      <div className="w-full border-gray-200 pt-16">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 mb-10">
-          <p className="text-center text-xs md:text-sm uppercase tracking-widest text-[#0D278A] font-bold mb-3">
-            {t("portfolio.trusted_by")}
-          </p>
-        </div>
+      <div className="w-full border-gray-200 pt-0">
 
         <div className="w-full overflow-hidden py-1" ref={logoEmblaRef}>
           <div className="flex touch-pan-y">

@@ -33,16 +33,19 @@ export function ContactSection() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error("Failed to send message");
+        throw new Error(data.error || "Failed to send message");
       }
 
       setStatus("success");
       setFormData({ name: "", email: "", organization: "", message: "" });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error submitting form:", error);
       setStatus("error");
-      setErrorMessage("Something went wrong. Please try again later.");
+      const msg = error.message || "Something went wrong. Please try again later.";
+      setErrorMessage(msg);
     }
   };
 

@@ -1,16 +1,42 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { SERVICES, getServiceContent } from "@/lib/services";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export function ServicesSection() {
   const { language, t } = useLanguage();
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" as const },
+    },
+  };
+
   return (
-    <section className="bg-[#F8FAFC] py-16 md:py-24 border-b border-slate-200/60">
+    <section className="bg-[#F8FAFC] py-16 md:py-24 border-b border-slate-200/60 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12"
+        >
           <div>
             <span className="inline-block px-3 py-1 rounded-full bg-[#E0E7FF] text-[#0D278A] text-xs font-bold tracking-[0.2em] uppercase mb-3 shadow-2xs">
               {t("services.subtitle")}
@@ -42,15 +68,22 @@ export function ServicesSection() {
               />
             </svg>
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid gap-6 md:grid-cols-3"
+        >
           {SERVICES.map((service) => {
             const content = getServiceContent(service, language);
             return (
-              <article
+              <motion.article
                 key={service.id}
-                className="group bg-white rounded-2xl border border-slate-200/80 p-6 md:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300"
+                variants={itemVariants}
+                className="group bg-white rounded-2xl border border-slate-200/80 p-6 md:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 transform-gpu"
               >
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-[#EEF2FF] flex items-center justify-center mb-5 shadow-2xs group-hover:scale-110 transition-transform duration-300">
@@ -77,15 +110,15 @@ export function ServicesSection() {
 
                 <Link
                   href="/services"
-                  className="inline-flex items-center text-xs font-bold text-[#0D278A] hover:underline pt-3 border-t border-slate-100 mt-auto"
+                  className="inline-flex items-center text-xs font-bold text-[#0D278A] hover:underline pt-3 border-t border-slate-100 mt-auto group-hover:translate-x-1 transition-transform"
                 >
                   <span>{t("services.learnMore")}</span>
                   <span className="ml-1">→</span>
                 </Link>
-              </article>
+              </motion.article>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

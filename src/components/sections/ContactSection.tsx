@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export function ContactSection() {
   const { t } = useLanguage();
@@ -50,23 +51,35 @@ export function ContactSection() {
   };
 
   return (
-    <section className="bg-[#F5F7FA] py-16 md:py-20">
+    <section className="bg-[#F8FAFC] py-16 md:py-24 border-t border-slate-200/60 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Section Header */}
-        <div className="mb-8 text-center md:text-left">
-          <p className="text-xs font-semibold tracking-[0.2em] text-[#5A73C3] uppercase">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="mb-10 text-center md:text-left"
+        >
+          <span className="inline-block px-3 py-1 rounded-full bg-[#E0E7FF] text-[#0D278A] text-xs font-bold tracking-[0.2em] uppercase mb-3 shadow-2xs">
             {t("contact.subtitle")}
-          </p>
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#111827] mt-1">
+          </span>
+          <h2 className="text-2xl md:text-4xl font-bold text-slate-900 tracking-tight">
             {t("contact.title")}
           </h2>
-          <p className="mt-2 text-sm text-[#4B5563] max-w-2xl md:max-w-xl md:text-left mx-auto md:mx-0">
+          <p className="mt-2 text-sm md:text-base text-slate-600 max-w-2xl md:max-w-xl md:text-left mx-auto md:mx-0 leading-relaxed">
             {t("contact.description")}
           </p>
-        </div>
+        </motion.div>
 
         {/* Contact Card: 2 columns */}
-        <div className="bg-white rounded-2xl shadow-[0_18px_40px_rgba(15,23,42,0.08)] border border-[#E5E7EB] p-6 md:p-8 grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(13,39,138,0.06)] border border-slate-200/80 p-6 md:p-10 grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] gap-8 overflow-hidden transform-gpu"
+        >
           {/* Left Side: Contact info + reassurance */}
           <div className="space-y-6">
             <div>
@@ -206,7 +219,7 @@ export function ContactSection() {
               </form>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

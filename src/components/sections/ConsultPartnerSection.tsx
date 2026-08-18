@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export function ConsultPartnerSection() {
   const { t } = useLanguage();
 
-  // Placeholder logos - using existing logos for now
   const partners = [
     "/images/partnerLogo/img1.png",
     "/images/partnerLogo/img2.png",
@@ -16,17 +16,27 @@ export function ConsultPartnerSection() {
   ];
 
   return (
-    <section className="bg-[#F8FAFC] py-16 md:py-20 border-t border-slate-200/60">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
-        <span className="inline-block px-3 py-1 rounded-full bg-[#E0E7FF] text-[#0D278A] text-xs font-bold tracking-[0.2em] uppercase mb-4 shadow-2xs">
+    <section className="bg-[#F8FAFC] py-16 md:py-24 border-t border-slate-200/60 overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-6xl mx-auto px-4 md:px-6 text-center"
+      >
+        <span className="inline-block px-3.5 py-1 rounded-full bg-[#E0E7FF] text-[#0D278A] text-xs font-bold tracking-[0.2em] uppercase mb-6 shadow-2xs">
           {t("consult_partner.title")}
         </span>
 
-        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 mt-6">
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 mt-4">
           {partners.map((logo, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative h-20 w-28 md:h-28 md:w-36 transition-all duration-300 hover:scale-110 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 cursor-pointer"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="relative h-20 w-28 md:h-24 md:w-36 transition-all duration-300 hover:scale-110 grayscale opacity-75 hover:grayscale-0 hover:opacity-100 cursor-pointer transform-gpu"
             >
               <Image
                 src={logo}
@@ -34,10 +44,10 @@ export function ConsultPartnerSection() {
                 fill
                 className="object-contain"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

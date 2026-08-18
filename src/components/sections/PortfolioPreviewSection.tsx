@@ -6,6 +6,7 @@ import { useEffect, useState, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import AutoScroll from "embla-carousel-auto-scroll";
+import { motion } from "framer-motion";
 import { PROJECTS, getProjectContent } from "@/lib/projects";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -63,37 +64,50 @@ export function PortfolioPreviewSection() {
   ];
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-white py-16 md:py-24 overflow-hidden border-b border-slate-200/60">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* หัวข้อ */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <p className="text-xs md:text-sm uppercase tracking-widest text-[#0D278A] font-bold mb-3">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
+          <span className="inline-block px-3 py-1 rounded-full bg-[#E0E7FF] text-[#0D278A] text-xs font-bold tracking-[0.2em] uppercase mb-3 shadow-2xs">
             {t("portfolio.subtitle")}
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0F172A]">
+          </span>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 text-[#0F172A] tracking-tight">
             {t("portfolio.title")}
           </h2>
           <p className="text-sm md:text-base text-[#64748B] leading-relaxed">
             {t("portfolio.description")}
           </p>
-        </div>
+        </motion.div>
 
         {/* Carousel */}
-        <div className="overflow-hidden" ref={emblaRef}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="overflow-hidden"
+          ref={emblaRef}
+        >
           <div className="flex">
             {projects.map((project) => (
               <div
                 key={project.id}
                 className="shrink-0 basis-full md:basis-1/3 px-3"
               >
-                <article className="group bg-[#FCFCFD] rounded-2xl border border-gray-200 overflow-hidden transition-colors duration-300 hover:border-gray-300 h-full flex flex-col">
+                <article className="group bg-[#FCFCFD] rounded-2xl border border-slate-200/80 hover:border-slate-300 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden transform-gpu">
                   {/* รูปด้านบน */}
-                  <div className="relative aspect-[4/3] bg-[#E5E7EB]">
+                  <div className="relative aspect-[4/3] bg-[#E5E7EB] overflow-hidden">
                     <Image
                       src={project.imageSrc}
                       alt={project.title}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(min-width: 768px) 33vw, 100vw"
                     />
                   </div>
@@ -112,26 +126,27 @@ export function PortfolioPreviewSection() {
                       <span className="text-[#6B7280]">{project.year}</span>
                     </div>
 
-                    <h3 className="text-base font-semibold text-[#111827] group-hover:text-[#0D278A] transition">
+                    <h3 className="text-base font-semibold text-[#111827] group-hover:text-[#0D278A] transition-colors">
                       {project.title}
                     </h3>
 
-                    <p className="text-xs text-[#4B5563] flex-1">
+                    <p className="text-xs text-[#4B5563] flex-1 leading-relaxed">
                       {project.description}
                     </p>
 
                     <Link
                       href={`/portfolio/${project.slug}`}
-                      className="inline-flex items-center text-xs font-semibold text-[#0D278A] hover:underline mt-auto"
+                      className="inline-flex items-center text-xs font-bold text-[#0D278A] hover:underline pt-3 border-t border-slate-100 mt-auto group-hover:translate-x-1 transition-transform"
                     >
-                      {t("portfolio.view")} →
+                      <span>{t("portfolio.view")}</span>
+                      <span className="ml-1">→</span>
                     </Link>
                   </div>
                 </article>
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* CTA */}
         <div className="flex justify-center mt-10 mb-20">

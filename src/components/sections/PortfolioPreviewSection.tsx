@@ -11,16 +11,19 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export function PortfolioPreviewSection() {
   const { language, t } = useLanguage();
-  const projects = PROJECTS.filter((p) => p.slug).map((p) => getProjectContent(p, language));
+  const projects = PROJECTS.filter((p) => p.slug).map((p) =>
+    getProjectContent(p, language),
+  );
 
   // Project Carousel
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
-    loop: true,
-    dragFree: true,
-  }, [
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: "start",
+      loop: true,
+      dragFree: true,
+    },
+    [Autoplay({ delay: 4000, stopOnInteraction: true })],
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
@@ -38,17 +41,14 @@ export function PortfolioPreviewSection() {
   }, [emblaApi, onSelect]);
 
   // Client Logo Carousel
-  const [logoEmblaRef] = useEmblaCarousel(
-    { loop: true, dragFree: true },
-    [
-      AutoScroll({
-        playOnInit: true,
-        speed: 1,
-        stopOnInteraction: false,
-        stopOnMouseEnter: true,
-      })
-    ]
-  );
+  const [logoEmblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
+    AutoScroll({
+      playOnInit: true,
+      speed: 1,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    }),
+  ]);
 
   const clientLogos = [
     "/images/agencyLogo/Alogo1.png",
@@ -100,10 +100,15 @@ export function PortfolioPreviewSection() {
 
                   {/* เนื้อหาการ์ด */}
                   <div className="p-5 space-y-3 flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 text-[11px] uppercase tracking-wide">
-                      <span className="px-2 py-1 rounded-full bg-[#E3E7F8] text-[#0D278A] font-semibold">
-                        {project.category}
-                      </span>
+                    <div className="flex flex-wrap items-center gap-1.5 text-[11px] uppercase tracking-wide">
+                      {project.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-0.5 rounded-full bg-[#E3E7F8] text-[#0D278A] font-semibold"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                       <span className="text-[#6B7280]">{project.year}</span>
                     </div>
 
@@ -141,15 +146,21 @@ export function PortfolioPreviewSection() {
 
       {/* Trusted By / Client Logos - Full Width */}
       <div className="w-full border-gray-200 pt-0">
-
         <div className="w-full overflow-hidden py-1" ref={logoEmblaRef}>
           <div className="flex touch-pan-y">
             {/* Loop logos multiple times to ensure smooth infinite scrolling effect if needed, 
                 but Embla loop:true handles it well with enough items. 
-                We'll map them once here, Embla handles the loop. */
-            }
-            {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((logo, index) => (
-              <div key={index} className="flex-[0_0_50%] md:flex-[0_0_20%] min-w-0 px-4 flex items-center justify-center">
+                We'll map them once here, Embla handles the loop. */}
+            {[
+              ...clientLogos,
+              ...clientLogos,
+              ...clientLogos,
+              ...clientLogos,
+            ].map((logo, index) => (
+              <div
+                key={index}
+                className="flex-[0_0_50%] md:flex-[0_0_20%] min-w-0 px-4 flex items-center justify-center"
+              >
                 <div className="relative h-36 w-36 transition-transform duration-300 hover:scale-110 cursor-pointer">
                   <Image
                     src={logo}

@@ -22,12 +22,43 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const title = `${project.title_th} (${project.title_en}) | Prime Digital Consultant`;
+  const description = project.description_th || project.description_en;
+  const pageUrl = `https://primedigital.co/portfolio/${project.slug}`;
+
   return {
-    title: `${project.title_en} | Prime Digital Consultant`,
-    description: project.description_en,
+    title,
+    description,
+    keywords: [
+      project.category_th,
+      project.category_en,
+      "Prime Digital Consultant",
+      "Portfolio",
+      "Case Study",
+      "Digital Transformation",
+    ],
+    alternates: {
+      canonical: pageUrl,
+    },
     openGraph: {
-      title: project.title_en,
-      description: project.description_en,
+      type: "article",
+      url: pageUrl,
+      title,
+      description,
+      siteName: "Prime Digital Consultant",
+      images: [
+        {
+          url: project.imageSrc,
+          width: 1200,
+          height: 630,
+          alt: project.title_th,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
       images: [project.imageSrc],
     },
   };

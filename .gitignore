@@ -29,3 +29,5 @@ Thumbs.db
 
 # lockfile backup (optional)
 package-lock.json.*
+
+.agents

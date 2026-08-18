@@ -39,10 +39,15 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
                 {content.title}
               </h1>
 
-              <div className="flex gap-3 text-xs md:text-sm">
-                <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                  {content.category}
-                </span>
+              <div className="flex flex-wrap gap-2 text-xs md:text-sm">
+                {content.tags.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full border border-white/30"
+                  >
+                    {tag}
+                  </span>
+                ))}
                 <span className="px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
                   {project.year}
                 </span>

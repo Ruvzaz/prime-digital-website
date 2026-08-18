@@ -4,38 +4,40 @@ import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export function ConsultPartnerSection() {
-    const { t } = useLanguage();
+  const { t } = useLanguage();
 
-    // Placeholder logos - using existing logos for now
-    const partners = [
-        "/images/partnerLogo/img1.png",
-        "/images/partnerLogo/img2.png",
-        "/images/partnerLogo/img3.png",
-        "/images/partnerLogo/img4.png",
-        "/images/partnerLogo/img5.png",
+  // Placeholder logos - using existing logos for now
+  const partners = [
+    "/images/partnerLogo/img1.png",
+    "/images/partnerLogo/img2.png",
+    "/images/partnerLogo/img3.png",
+    "/images/partnerLogo/img4.png",
+    "/images/partnerLogo/img5.png",
+  ];
 
-    ];
+  return (
+    <section className="bg-[#F8FAFC] py-16 md:py-20 border-t border-slate-200/60">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
+        <span className="inline-block px-3 py-1 rounded-full bg-[#E0E7FF] text-[#0D278A] text-xs font-bold tracking-[0.2em] uppercase mb-4 shadow-2xs">
+          {t("consult_partner.title")}
+        </span>
 
-    return (
-        <section className="bg-[#F5F7FA] py-16 border-t border-gray-200">
-            <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
-                <h3 className="text-lg md:text-xl font-bold text-[#0F172A] mb-10 uppercase tracking-wide">
-                    {t("consult_partner.title")}
-                </h3>
-
-                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                    {partners.map((logo, index) => (
-                        <div key={index} className="relative h-16 w-16 md:h-40 md:w-40">
-                            <Image
-                                src={logo}
-                                alt={`Partner ${index + 1}`}
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
-                    ))}
-                </div>
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 mt-6">
+          {partners.map((logo, index) => (
+            <div
+              key={index}
+              className="relative h-20 w-28 md:h-28 md:w-36 transition-all duration-300 hover:scale-110 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 cursor-pointer"
+            >
+              <Image
+                src={logo}
+                alt={`Partner ${index + 1}`}
+                fill
+                className="object-contain"
+              />
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
